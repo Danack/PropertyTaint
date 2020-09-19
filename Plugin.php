@@ -1,6 +1,6 @@
 <?php
 
-namespace Weirdan\PsalmPluginSkeleton;
+namespace Danack\PropertyTaint;
 
 use SimpleXMLElement;
 use Psalm\Plugin\PluginEntryPointInterface;
@@ -28,7 +28,11 @@ class Plugin implements PluginEntryPointInterface
         // values there. They will be provided to your plugin entry point in $config
         // parameter, as a SimpleXmlElement object. If there's no configuration present,
         // null will be passed instead.
+
+        require_once __DIR__ . '/PropertyTainter.php';
+        $psalm->registerHooksFromClass(PropertyTainter::class);
     }
+
 
     /** @return list<string> */
     private function getStubFiles(): array

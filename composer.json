@@ -1,11 +1,11 @@
 {
-    "name": "weirdan/psalm-plugin-skeleton",
-    "description": "Template to create psalm-plugin projects from",
+    "name": "danack/psalm-property-taint",
+    "description": "Adding taint to properties",
     "type": "psalm-plugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "Bruce Weirdan",
+            "name": "Danack",
             "email": "weirdan@gmail.com"
         }
     ],
@@ -18,17 +18,17 @@
     },
     "extra": {
         "psalm" : {
-            "pluginClass": "Weirdan\\PsalmPluginSkeleton\\Plugin"
+            "pluginClass": "Danack\\PropertyTaint\\Plugin"
         }
     },
     "autoload": {
         "psr-4": {
-            "Weirdan\\PsalmPluginSkeleton\\": ["."]
+            "Danack\\PropertyTaint\\": ["."]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Weirdan\\PsalmPluginSkeleton\\Tests\\": "tests"
+            "Danack\\PropertyTaint\\Tests\\": "tests"
         }
     },
     "scripts" : {

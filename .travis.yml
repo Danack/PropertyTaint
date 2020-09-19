@@ -1,0 +1,17 @@
+dist: trusty
+
+language: php
+
+php:
+  - "7.4"
+ # - "nightly"
+
+before_script:
+  - composer install
+
+script:
+  - bash runCodeSniffer.sh
+  - bash runUnitTests.sh
+
+notifications:
+  email: false

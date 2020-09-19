@@ -22,11 +22,16 @@
             </errorLevel>
         </PropertyNotSetInConstructor>
 
-        <TypeCoercion>
-            <errorLevel type="suppress">
-                <directory name="tests" />
-            </errorLevel>
-        </TypeCoercion>
+<!--        <TypeCoercion>-->
+<!--            <errorLevel type="suppress">-->
+<!--                <directory name="tests" />-->
+<!--            </errorLevel>-->
+<!--        </TypeCoercion>-->
 
     </issueHandlers>
+
+    <plugins>
+        <pluginClass class="Danack\PropertyTaint\Plugin" />
+    </plugins>
+
 </psalm>
