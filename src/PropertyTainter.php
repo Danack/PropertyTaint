@@ -56,44 +56,44 @@ class PropertyTainter implements AfterClassLikeAnalysisInterface
         );
     }
 
-     public static function handleStatement(
-         StatementsSource $statements_source,
-         Codebase $codebase,
+    public static function handleStatement(
+        StatementsSource $statements_source,
+        Codebase $codebase,
         \PhpParser\Node\Stmt $statement
-     ) {
-         if (!$statement instanceof \PhpParser\Node\Stmt\Property) {
-             return;
-         }
+    ) {
+        if (!$statement instanceof \PhpParser\Node\Stmt\Property) {
+            return;
+        }
 
-         foreach ($statement->props as $prop) {
-             $docblock = $statement->getDocComment();
+        foreach ($statement->props as $prop) {
+            $docblock = $statement->getDocComment();
 
-             if ($docblock) {
-                 $parsed_docblock = DocComment::parsePreservingLength($docblock);
-             }
-             else {
-                 $parsed_docblock = new \Psalm\Internal\Scanner\ParsedDocblock('', []);
-             }
+            if ($docblock) {
+                $parsed_docblock = DocComment::parsePreservingLength($docblock);
+            }
+            else {
+                $parsed_docblock = new \Psalm\Internal\Scanner\ParsedDocblock('', []);
+            }
 
-             foreach ($parsed_docblock->tags as $tag_type => $info) {
-                 self::handleTag(
-                     $statements_source,
-                     $codebase,
-                     $prop,
-                     $tag_type,
-                     $info
-                 );
-             }
-         }
-     }
+            foreach ($parsed_docblock->tags as $tag_type => $info) {
+                self::handleTag(
+                    $statements_source,
+                    $codebase,
+                    $prop,
+                    $tag_type,
+                    $info
+                );
+            }
+        }
+    }
 
     /**
      * Called after an expression has been checked
      *
-     * @param  PhpParser\Node\Expr  $expr
-     * @param  Context              $context
-     * @param  string[]             $suppressed_issues
-     * @param  FileManipulation[]    $file_replacements
+     * @param PhpParser\Node\Expr $expr
+     * @param Context             $context
+     * @param string[]            $suppressed_issues
+     * @param FileManipulation[]  $file_replacements
      *
      * @return void
      */

@@ -8,7 +8,9 @@ use Psalm\Plugin\RegistrationInterface;
 
 class Plugin implements PluginEntryPointInterface
 {
-    /** @return void */
+    /**
+     * @return void 
+     */
     public function __invoke(RegistrationInterface $psalm, ?SimpleXMLElement $config = null)
     {
         // This is plugin entry point. You can initialize things you need here,
@@ -29,12 +31,14 @@ class Plugin implements PluginEntryPointInterface
         // parameter, as a SimpleXmlElement object. If there's no configuration present,
         // null will be passed instead.
 
-        require_once __DIR__ . '/PropertyTainter.php';
+        include_once __DIR__ . '/PropertyTainter.php';
         $psalm->registerHooksFromClass(PropertyTainter::class);
     }
 
 
-    /** @return list<string> */
+    /**
+     * @return list<string> 
+     */
     private function getStubFiles(): array
     {
         return glob(__DIR__ . '/stubs/*.phpstub') ?: [];

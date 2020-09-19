@@ -11,5 +11,5 @@ set -e
 echo "Checking code standards on src"
 # php vendor/bin/phpcbf --standard=./test/codesniffer.xml --encoding=utf-8 --extensions=php -p -s src
 # php vendor/bin/phpcs --standard=./test/codesniffer.xml --encoding=utf-8 --extensions=php -p -s src
-php vendor/bin/phpcbf
+php vendor/bin/phpcbf -s .
 php vendor/bin/phpcs

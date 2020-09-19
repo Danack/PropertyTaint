@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Danack\\PropertyTaint\\": ["."]
+            "Danack\\PropertyTaint\\": ["src"]
         }
     },
     "autoload-dev": {
