@@ -44,11 +44,9 @@ class PluginTest extends TestCase
 
     public function providerValidCodeParse()
     {
-        yield 'taintUnserialize' => [
-            '<?php
-                        $cb = unserialize($_POST[\'x\']);',
-            'error_message' => 'TaintedInput',
-        ];
+        $contents = file_get_contents(__DIR__ . "/../demo/user_updater.php");
+        $contents = substr($contents, 6);
+        yield $contents;
     }
 
     /**
