@@ -23,6 +23,10 @@ class PropertyTainter implements AfterClassLikeAnalysisInterface
     ) {
         $expr_type = $statements_source->getNodeTypeProvider()->getType($prop);
 
+        if (!$expr_type instanceof \Psalm\Type\Union) {
+            throw new \Exception("Not sure what this is meant to be...");
+        }
+
         // should be a globally unique id
         // you can use its line number/start offset
         $expr_identifier = 'tainted_property'
